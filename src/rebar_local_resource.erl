@@ -9,8 +9,9 @@
     ,make_vsn/2]).
 
 -spec init(atom(), rebar_state:t()) -> {ok, rebar_state:t()}.
-init(_Dir, State) ->
-    {ok, rebar_state:add_resource(State, {local, rebar_local_resource})}.
+init(Type, _State) ->
+    Resource = rebar_resource_v2:new(Type, ?MODULE, #{}),
+    {ok, Resource}.
 
 lock(_Dir, SourcePath) ->
     SourcePath.
