@@ -19,9 +19,10 @@ lock(_Dir, SourcePath) ->
 needs_update(_Dir, {local, _SourcePath}) ->
     true.
 
-download(Dir, {local, SourcePath}, _State, _) ->
+download(Dir, AppInfo, _State, _) ->
+    {local, SourcePath} = rebar_app_info:source(AppInfo),
     ok = rebar_file_utils:cp_r(filelib:wildcard(SourcePath ++ "/*"), Dir),
-    {ok, undefined}.
+    ok.
 
 make_vsn(_AppInfo, _Dir) ->
     {plain, "unused"}.
