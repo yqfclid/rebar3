@@ -81,6 +81,7 @@ lock(AppInfo, State) ->
 
 resource_run(Function, Source, Args, State) ->
     Resources = rebar_state:resources(State),
+    io:format("resource ~p~n", [Resources]),
     case get_resource_type(Source, Resources) of
         {ok, #resource{type=_,
                        module=Module,
