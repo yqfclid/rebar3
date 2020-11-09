@@ -39,7 +39,8 @@
                      {git_subdir, rebar_git_subdir_resource},
                      {pkg, rebar_pkg_resource},
                      {hg, rebar_hg_resource},
-                     {local, rebar_local_resource}]},
+                     {local, rebar_local_resource},
+                     {path, rebar_path_resource}]},
 
         {compilers, [rebar_compiler_xrl, rebar_compiler_yrl,
                      rebar_compiler_mib, rebar_compiler_erl]},
